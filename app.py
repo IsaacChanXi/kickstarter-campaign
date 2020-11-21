@@ -21,7 +21,7 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 	nltk.download('stopwords')
-	NB_spam_model = open('NB_spam_model.pkl','rb')
+	NB_spam_model = open('model.pkl','rb')
 	clf = joblib.load(NB_spam_model)
 
 	if request.method == 'POST':
