@@ -5,7 +5,6 @@ gunicorn==20.0.4
 itsdangerous==1.1.0
 Jinja2==2.11.2
 joblib==0.17.0
-MarkupSafe @ file:///opt/concourse/worker/volumes/live/cb778296-98db-45ad-411e-6f726e102dc3/volume/markupsafe_1594371638608/work
 nltk==3.5
 numpy==1.19.4
 pandas==1.1.4
