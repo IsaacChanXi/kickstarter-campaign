@@ -3,13 +3,12 @@ import pandas as pd
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.externals import joblib
+import joblib
 import pickle
 import nltk
 import re
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer 
-from profanity_check import predict as pf
 
 
 app = Flask(__name__)
@@ -35,10 +34,7 @@ def predict():
                 data = [message]
                 vect = cv.transform(data).toarray()
                 my_prediction = str(round(clf.predict_proba(vect)[0][1]*100,1))+'%'
-                if pf(data)[0] == 1:
-                        my_prediction="0%"
-                
-	return render_template('result.html',prediction = my_prediction)
+	return render_template('result.html', prediction = my_prediction)
 
-
-app.run(debug=True)
+if __name__ == '__main__':
+        app.run(debug=True)
